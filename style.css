@@ -89,6 +89,7 @@ body{
   line-height:1.7;
   max-width:32ch;
   color:var(--text);
+  white-space:pre-wrap;     /* baru: biar enter/baris baru yang kamu ketik ikut kebaca */
 }
 .message.small{ font-size:1.1rem; font-style:normal; opacity:0.8; }
 
@@ -187,6 +188,9 @@ body{
   flex-direction:column;
   align-items:center;
   gap:1.5rem;
+  max-height:70vh;          /* baru */
+  overflow-y:auto;          /* baru: scroll otomatis kalau isinya kepanjangan */
+  padding:0 0.5rem;         /* baru: jarak dikit dari scrollbar */
 }
 .letter.show{
   opacity:1;
