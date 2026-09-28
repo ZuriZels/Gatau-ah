@@ -69,6 +69,11 @@ claimBtn.addEventListener("click", async () => {
   } catch (err) {
     console.warn("Gagal kirim ke Discord:", err);
   }
+  
+  await wait(2500);
+  statusEl.textContent = "🎉 hadiahmu telah dikirim!";
+  claimBtn.textContent = "sudah dikirim";
+});
 
 const envelopeBtn = document.getElementById("btn-envelope");
 const envelopeWrap = document.getElementById("envelope-wrap");
@@ -83,9 +88,4 @@ envelopeBtn.addEventListener("click", () => {
     letterEl.classList.remove("hidden");
     letterEl.classList.add("show");          // suratnya muncul, membesar pelan
   }, 700); // nunggu animasi flap selesai dulu (700ms = 0.7s sesuai transition di CSS)
-});
-  
-  await wait(2500);
-  statusEl.textContent = "🎉 hadiahmu telah dikirim!";
-  claimBtn.textContent = "sudah dikirim";
 });
