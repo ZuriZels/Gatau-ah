@@ -188,9 +188,17 @@ body{
   flex-direction:column;
   align-items:center;
   gap:1.5rem;
-  max-height:70vh;          /* baru */
-  overflow-y:auto;          /* baru: scroll otomatis kalau isinya kepanjangan */
-  padding:0 0.5rem;         /* baru: jarak dikit dari scrollbar */
+
+  max-height:70vh;
+  overflow-y:auto;
+
+  /* baru: bikin dia keliatan sebagai kotak surat */
+  width:min(85vw, 420px);
+  padding:2rem 1.75rem;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:14px;
+  backdrop-filter:blur(6px);
 }
 .letter.show{
   opacity:1;
