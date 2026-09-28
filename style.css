@@ -17,7 +17,7 @@ html,body{
   overflow:hidden;
 }
 
-/* galaxy backdrop: layered radial gradients, slow zoom+drift */
+
 body{
   position:relative;
   background-image:
@@ -33,7 +33,7 @@ body{
   to  { background-position:10% 15%, 85% 80%, 55% 90%, 0 0; transform:scale(1.08); }
 }
 
-/* twinkling stars, generated in JS as small divs */
+
 .stars{
   position:fixed; inset:0; pointer-events:none; z-index:1;
 }
