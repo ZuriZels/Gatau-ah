@@ -1,8 +1,6 @@
-// ====== GANTI INI DENGAN WEBHOOK DISCORD KAMU ======
-const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1554075816453734460/5Pnk7goYZ_bf0JbspTqzq_qNHEO8QWuyiAklGebiBEDPbPspMg2zcBKdeQkKfQMleLQl";
-// =====================================================
 
-// 1. Generate bintang kecil yang berkedip
+const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1554075816453734460/5Pnk7goYZ_bf0JbspTqzq_qNHEO8QWuyiAklGebiBEDPbPspMg2zcBKdeQkKfQMleLQl";
+
 function generateStars(count = 120) {
   const container = document.getElementById("stars");
   for (let i = 0; i < count; i++) {
@@ -17,7 +15,6 @@ function generateStars(count = 120) {
 }
 generateStars();
 
-// 2. Sequence teks pembuka, muncul satu per satu
 async function playOpening() {
   const lines = document.querySelectorAll("#opening-lines .line");
   for (const line of lines) {
@@ -36,7 +33,6 @@ function wait(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-// 3. Navigasi antar scene
 function showScene(id) {
   document.querySelectorAll(".scene").forEach(s => s.classList.add("hidden"));
   document.getElementById(id).classList.remove("hidden");
@@ -50,7 +46,6 @@ document.getElementById("btn-to-gift").addEventListener("click", () => {
   showScene("scene-gift");
 });
 
-// 4. Tombol "Ambil Hadiah" -> kirim notifikasi ke Discord
 const claimBtn = document.getElementById("btn-claim");
 const statusEl = document.getElementById("status");
 
@@ -72,7 +67,6 @@ claimBtn.addEventListener("click", async () => {
       })
     });
   } catch (err) {
-    // kalau webhook gagal (misal belum diisi), tetap lanjutkan alurnya
     console.warn("Gagal kirim ke Discord:", err);
   }
 
