@@ -119,6 +119,79 @@ body{
   min-height:1.2rem;
 }
 
+.envelope-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:1rem;
+  transition:opacity 0.5s ease, transform 0.5s ease;
+}
+.envelope-wrap.fade-out{
+  opacity:0;
+  transform:scale(0.85);
+  pointer-events:none;
+}
+
+.envelope{
+  position:relative;
+  width:180px; height:120px;
+  background:none;
+  border:none;
+  padding:0;
+  cursor:pointer;
+  perspective:500px; /* biar flap-nya kerasa 3D pas mutar */
+}
+
+.envelope-body{
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));
+  border:1px solid rgba(255,255,255,0.25);
+  border-radius:6px;
+}
+
+.envelope-flap{
+  position:absolute;
+  top:0; left:0; right:0;
+  height:0;
+  border-left:90px solid transparent;
+  border-right:90px solid transparent;
+  border-top:65px solid rgba(120,150,220,0.35);
+  transform-origin:top center;
+  transition:transform 0.7s ease;
+}
+
+.envelope.open .envelope-flap{
+  transform:rotateX(180deg);
+}
+
+.envelope-seal{
+  position:absolute;
+  top:58%; left:50%;
+  transform:translate(-50%,-50%);
+  font-size:1.3rem;
+  opacity:0.85;
+}
+
+.hint{
+  font-size:0.8rem;
+  color:var(--muted);
+  font-weight:300;
+}
+
+.letter{
+  opacity:0;
+  transform:translateY(20px) scale(0.96);
+  transition:opacity 0.9s ease, transform 0.9s ease;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:1.5rem;
+}
+.letter.show{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+
 @media (prefers-reduced-motion: reduce){
   body{ animation:none; }
   .star{ animation:none; opacity:0.6; }
