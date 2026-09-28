@@ -24,15 +24,24 @@
     <button class="btn ghost" id="btn-continue" hidden>continue</button>
   </section>
 
-  <!-- SCENE 2: message -->
-  <section class="scene hidden" id="scene-message">
+ <section class="scene hidden" id="scene-message">
+  <div class="envelope-wrap" id="envelope-wrap">
+    <button class="envelope" id="btn-envelope" aria-label="buka surat">
+      <span class="envelope-body"></span>
+      <span class="envelope-flap"></span>
+      <span class="envelope-seal">✉</span>
+    </button>
+    <p class="hint">Tap Buat Buka Surat</p>
+  </div>
+
+  <div class="letter hidden" id="letter">
     <p class="eyebrow">to you,</p>
     <p class="message" id="message-text">
       tulis ucapanmu di sini ya...
     </p>
     <button class="btn ghost" id="btn-to-gift">next</button>
-  </section>
-
+  </div>
+</section>
   <!-- SCENE 3: gift -->
   <section class="scene hidden" id="scene-gift">
     <p class="eyebrow">one more thing</p>
