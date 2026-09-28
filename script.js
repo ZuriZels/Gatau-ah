@@ -88,4 +88,8 @@ envelopeBtn.addEventListener("click", () => {
     letterEl.classList.remove("hidden");
     letterEl.classList.add("show");          // suratnya muncul, membesar pelan
   }, 700); // nunggu animasi flap selesai dulu (700ms = 0.7s sesuai transition di CSS)
+  
+ setTimeout(() => {
+    envelopeWrap.style.display = "none";
+  }, 700 + 500);
 });
