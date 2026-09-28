@@ -1,0 +1,125 @@
+:root{
+  --bg-deep:#050b1a;
+  --bg-mid:#0a1a3d;
+  --accent:#4a7fd6;
+  --star:#e8eef7;
+  --text:#eef2fb;
+  --muted:#8fa3c9;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+
+html,body{
+  height:100%;
+  background:var(--bg-deep);
+  color:var(--text);
+  font-family:'Inter', sans-serif;
+  overflow:hidden;
+}
+
+/* galaxy backdrop: layered radial gradients, slow zoom+drift */
+body{
+  position:relative;
+  background-image:
+    radial-gradient(ellipse at 20% 30%, rgba(74,127,214,0.15), transparent 55%),
+    url("biru.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation:driftGalaxy 40s ease-in-out infinite alternate;
+}
+@keyframes driftGalaxy{
+  from{ background-position:0% 0%, 100% 100%, 50% 100%, 0 0; transform:scale(1); }
+  to  { background-position:10% 15%, 85% 80%, 55% 90%, 0 0; transform:scale(1.08); }
+}
+
+/* twinkling stars, generated in JS as small divs */
+.stars{
+  position:fixed; inset:0; pointer-events:none; z-index:1;
+}
+.star{
+  position:absolute;
+  width:2px; height:2px;
+  background:var(--star);
+  border-radius:50%;
+  animation:twinkle 3s ease-in-out infinite;
+}
+@keyframes twinkle{
+  0%,100%{ opacity:0.15; }
+  50%{ opacity:1; }
+}
+
+.nebula{ position:fixed; inset:0; z-index:0; }
+
+.scene{
+  position:relative; z-index:2;
+  height:100vh;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  text-align:center;
+  padding:2rem;
+  gap:1.5rem;
+  transition:opacity 1.2s ease;
+}
+.scene.hidden{ display:none; }
+
+.opening-lines .line{
+  font-family:'Cormorant Garamond', serif;
+  font-size:1.6rem;
+  font-weight:400;
+  color:var(--text);
+  opacity:0;
+  margin:0.4rem 0;
+  transition:opacity 1.5s ease;
+}
+.opening-lines .line.show{ opacity:1; }
+
+.eyebrow{
+  font-size:0.8rem;
+  letter-spacing:0.08em;
+  color:var(--muted);
+  font-weight:300;
+}
+
+.message{
+  font-family:'Cormorant Garamond', serif;
+  font-size:1.5rem;
+  font-style:italic;
+  line-height:1.7;
+  max-width:32ch;
+  color:var(--text);
+}
+.message.small{ font-size:1.1rem; font-style:normal; opacity:0.8; }
+
+.btn{
+  font-family:'Inter', sans-serif;
+  font-size:0.85rem;
+  letter-spacing:0.03em;
+  padding:0.8rem 2rem;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,0.25);
+  background:transparent;
+  color:var(--text);
+  cursor:pointer;
+  transition:background 0.3s ease, transform 0.2s ease;
+}
+.btn:hover{ background:rgba(255,255,255,0.08); transform:translateY(-1px); }
+
+.btn.solid{
+  background:var(--accent);
+  border-color:var(--accent);
+}
+.btn.solid:hover{ background:#5c8ee0; }
+
+.btn.ghost.fade-in{ opacity:1; }
+
+.status{
+  font-size:0.85rem;
+  color:var(--muted);
+  min-height:1.2rem;
+}
+
+@media (prefers-reduced-motion: reduce){
+  body{ animation:none; }
+  .star{ animation:none; opacity:0.6; }
+}

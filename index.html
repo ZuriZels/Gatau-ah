@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>untuk kamu 🌌</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="stars" id="stars"></div>
+  <div class="nebula"></div>
+
+  <!-- SCENE 1: opening -->
+  <section class="scene" id="scene-opening">
+    <div class="opening-lines" id="opening-lines">
+      <p class="line">Hi.</p>
+      <p class="line">it's your birthday today.</p>
+      <p class="line">so i made something.</p>
+    </div>
+    <button class="btn ghost" id="btn-continue" hidden>continue</button>
+  </section>
+
+  <!-- SCENE 2: message -->
+  <section class="scene hidden" id="scene-message">
+    <p class="eyebrow">to you,</p>
+    <p class="message" id="message-text">
+      tulis ucapanmu di sini ya...
+    </p>
+    <button class="btn ghost" id="btn-to-gift">next</button>
+  </section>
+
+  <!-- SCENE 3: gift -->
+  <section class="scene hidden" id="scene-gift">
+    <p class="eyebrow">one more thing</p>
+    <p class="message small">there's something waiting for you.</p>
+    <button class="btn solid" id="btn-claim">ambil hadiah 🎁</button>
+    <p class="status" id="status"></p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
